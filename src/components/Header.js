@@ -36,13 +36,14 @@ function Header() {
 }
 
 export default Header
-
+//Navigation Area
 const Nav = styled.nav`
 height: 70px;
 background: #090b13;
 display: flex;
 align-items: center;
 padding: 0 36px;
+overflow-x: hidden;
 `
 const Logo = styled.img`
     width: 80px;
@@ -82,7 +83,7 @@ const NavMenu = styled.div`
               }
               &:hover{
                   span:after {
-                  transform: scaleX(1);
+                  transform: scaleX(1.30);
                   opacity: 1;
                   }
               }
