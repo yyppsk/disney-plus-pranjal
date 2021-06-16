@@ -36,7 +36,6 @@ function Header() {
 }
 
 export default Header
-//Navigation Area
 const Nav = styled.nav`
 height: 70px;
 background: #090b13;
