@@ -2,6 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Currentlty Under Development.
 
+This clone is made using VS CODE, nodeJS, React and FireBase. This web application can be reused and reshared to create your own streaming services website like Disney Plus.
+Any Changes for improvement are welcomed!
+
 ## Available Scripts
 
 In the project directory, you can run:
