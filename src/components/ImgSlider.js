@@ -55,19 +55,32 @@ cursor: pointer;
          box-shadow: rgb(0 0 0/ 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
          transition-duration: 600ms;
          &:hover {
-            border-width: 3px;
-            border-style: solid;
-            border-image: 
-              linear-gradient(
-                to bottom, 
-                #EBA83A, 
-                rgba(0, 0, 0, 0)
-              ) 1 100%;
-              -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
--webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-
-             //optional rgba(249, 249, 249, 0.8);
+                   border-width: 2px ;
+                   border-top: -50% ;
+                   border-left: -50% ;
+                   border{ z-index: -9 ; 
+                 }
+                border 
+                  { 
+                     height: 200%;
+                     width: 50%;
+                     transform: rotate(-45deg);
+                     overflow: hidden; 
+                   } 
+                      background: linear-gradient(to right, #EBA83A 20%, #fff 40%, #ECD08C 50%, #ECD08C 55%, #fff 70%, #fff 100%);
+                      background-size: 200% auto;
+                      animation: shine 3s linear infinite;
+                         -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+                         -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+                          box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+                }
+              /*Begin shimmer code*/
+              @keyframes shine {
+                  to {
+                    background-position: 200% center;
+                  }
+                }fff
+            }        
          }
      }
 `
