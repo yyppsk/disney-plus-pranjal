@@ -1,36 +1,60 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useParams } from "react-router-dom"
+import db from "../firebase"
+
 function Detail() {
+    const { id } = useParams();
+    const [movie, setMovie ] = useState()
+    useEffect(()=>{
+        // grab the movie into from db
+        db.collection("movies")
+        .doc(id)
+        .get()
+        .then((doc)=>{
+            if(doc.exists){
+                //save the movie data
+                setMovie(doc.data());
+            } else {
+                //redirect to home maybe
+            }
+        })
+    }, [])
     return (
         <Container>
-            <ImageTitle>
-                <img src={movie.titleImg}/>
-            </ImageTitle>
-            <Background>
-                <img src={movie.backgroundImg} />
-            </Background>
-            <Controls>
-                <PlayButton>
+            {movie && (
+         <>
+                <ImageTitle>
+                     <img src={movie.titleImg}/>
+                         </ImageTitle>
+                          <Background>
+                          <img src={movie.backgroundImg} />
+                          </Background>
+                    <Controls>
+                        <PlayButton>
                     <img src="/images/play-icon-black.png"/>
-                    <span>PLAY</span>
-                </PlayButton>
-                <TrailerButton>
-                <img src="/images/play-icon-white.png"/>
-                    <span>Trailer</span>
-                </TrailerButton>
-                <AddButton>
-                    <span>+</span>
-                </AddButton>
-                <GroupWatchButton>
-                    <img src ="/images/group-icon.png" />
-                </GroupWatchButton>
-            </Controls>
-            <SubTitle>
-                {movie.SubTitle}
-            </SubTitle>
-            <Description>
-            An ageing Chinese mom gets another chance at motherhood when one of her dumplings springs to life as a lively, giggly dumpling boy.
-            </Description>
+                <span>PLAY</span>
+                       </PlayButton>
+            <TrailerButton>
+            <img src="/images/play-icon-white.png"/>
+                <span>Trailer</span>
+            </TrailerButton>
+            <AddButton>
+                <span>+</span>
+            </AddButton>
+            <GroupWatchButton>
+                <img src ="/images/group-icon.png" />
+            </GroupWatchButton>
+        </Controls>
+        <SubTitle>
+            {movie.subTitle}
+        </SubTitle>
+        <Description>
+            {movie.description}
+        </Description>
+        </>
+            )}
+            
         </Container>
     )
 }
